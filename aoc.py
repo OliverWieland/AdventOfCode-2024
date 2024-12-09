@@ -3,6 +3,7 @@ from day2 import day2
 from day3 import day3
 from day4 import day4
 from day5 import day5
+from day6 import day6
 
 
 def main():
@@ -21,6 +22,9 @@ def main():
     print("################################")
     print("Starting Day5...")
     day5.day_5()
+    print("################################")
+    print("Starting Day6...")
+    day6.day_6()
 
 
 if __name__ == "__main__":
