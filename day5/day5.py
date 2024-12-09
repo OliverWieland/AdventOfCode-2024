@@ -14,12 +14,12 @@ def is_valid(update: Update, ruleset: list[Rule]) -> bool:
     return True
 
 
-def findMiddle(updates: list[Update]) -> int:
-    middle = float(len(updates)) / 2
+def findMiddle(update: Update) -> int:
+    middle = float(len(update)) / 2
     if middle % 2 != 0:
-        return updates[int(middle - 0.5)]
+        return update[int(middle - 0.5)]
     else:
-        return (updates[int(middle)], updates[int(middle - 1)])
+        return 0
 
 
 def repair(update: Update, ruleset: list[Rule]) -> Update:
