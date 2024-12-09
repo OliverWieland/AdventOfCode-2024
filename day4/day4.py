@@ -27,6 +27,31 @@ def find_word(
     return find_word(lines, x, y, direction, next_char)
 
 
+def find_x_mas(lines, x: int, y: int) -> bool:
+    if lines[y][x] != "A":
+        return False
+    if x >= len(lines[0]) - 1:
+        return False
+    if x < 1:
+        return False
+    if y >= len(lines) - 1:
+        return False
+    if y < 1:
+        return False
+
+    count = 0
+    for dir_x in (-1, 1):
+        for dir_y in (-1, 1):
+            if lines[y + dir_y][x + dir_x] != "M":
+                continue
+            if lines[y - dir_y][x - dir_x] != "S":
+                continue
+            count += 1
+            if count > 1:
+                return True
+    return False
+
+
 def part_1(lines):
     words = 0
 
@@ -43,7 +68,15 @@ def part_1(lines):
     return words
 
 
-def part_2(lines): ...
+def part_2(lines):
+    count = 0
+
+    for y in range(len(lines)):
+        for x in range(len(lines[0])):
+            if find_x_mas(lines, x, y):
+                count += 1
+
+    return count
 
 
 def day_4():
